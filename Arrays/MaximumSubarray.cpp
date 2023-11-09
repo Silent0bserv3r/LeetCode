@@ -4,16 +4,16 @@ using namespace std;
 
 class Solution {
 public:
-    int maxSubArray(vector<int>& n) {
-        int hs = INT_MIN, cs = 0;
-        for (int i = 0; i < n.size(); i++) {
-            cs += n[i];
-            if (cs > hs) {
-                hs = cs;
+    int maxSubArray(vector<int>& nums) {
+        int maxSum = INT_MIN, currSum = 0;
+        for (int i = 0; i < nums.size(); i++) {
+            currSum += nums[i];
+            if (currSum > maxSum) {
+                maxSum = currSum;
             }
-            if (cs < 0) cs = 0;
+            if (currSum < 0) currSum = 0;
         }
-        return hs;
+        return maxSum;
     }
 };
 
